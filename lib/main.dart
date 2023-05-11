@@ -3,17 +3,15 @@ import 'package:quiz_app/homepage.dart';
 
 void main() {
   runApp(
-     const MaterialApp(
-
+    MaterialApp(
       home: Scaffold(
-
-        body:HomePage() ,
+        body: Container(
+          decoration: const BoxDecoration(
+            color: Color.fromARGB(255, 71, 14, 120),
+          ),
+          child: const HomePage(),
+        ),
       ),
-
-
-     )
-
+    ),
   );
- 
 }
-

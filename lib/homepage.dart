@@ -6,32 +6,31 @@ class HomePage extends StatelessWidget {
   void startQuiz() {}
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        color: Color.fromARGB(255, 71, 14, 120),
-      ),
-      child: Center(
+    return 
+       Center(
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           Image.asset(
             'assets/quiz-logo.png',
-            width: 150,
+            width: 250,
+            color: Colors.white38,
           ),
           const SizedBox(
-            height: 40,
+            height: 60,
           ),
           const Text(
             'Learn flutter the fun way',
             style: TextStyle(color: Colors.white),
           ),
           const SizedBox(
-            height: 20,
+            height: 30,
           ),
-          OutlinedButton(
+          OutlinedButton.icon(
             onPressed: startQuiz,
-            child: const Text('start Quiz'),
+            label: const Text('start Quiz'),
+            icon: const Icon(Icons.arrow_forward),
           )
         ]),
-      ),
-    );
+      );
+    
   }
 }
