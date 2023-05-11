@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  void startQuiz() {}
+  const HomePage(this.switchScreen,{super.key});
+  final void Function() switchScreen;
   @override
   Widget build(BuildContext context) {
     return 
@@ -25,7 +24,7 @@ class HomePage extends StatelessWidget {
             height: 30,
           ),
           OutlinedButton.icon(
-            onPressed: startQuiz,
+            onPressed: switchScreen,
             label: const Text('start Quiz'),
             icon: const Icon(Icons.arrow_forward),
           )
