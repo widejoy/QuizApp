@@ -14,13 +14,14 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  final List<String> selectedAnswers = [];
+  List<String> selectedAnswers = [];
   void addAnswers(String answer) {
     selectedAnswers.add(answer);
     if(selectedAnswers.length == qustions.length)
     {
       setState(() {
-        screen = const Results();
+        selectedAnswers = [];
+        screen = Results(selectedAnswers);
       });
     }
   }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Results extends StatelessWidget {
-  const Results({super.key});
-
+  Results(this.chosenAnswers,{super.key});
+  List<String> chosenAnswers = [];
   @override
   Widget build(BuildContext context) {
     return Center(
