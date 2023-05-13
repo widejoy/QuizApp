@@ -19,18 +19,30 @@ class Results extends StatelessWidget {
         },
       );
     }
+    
     return summary;
   }
-
+  
   @override
   Widget build(BuildContext context) {
+    var score = 0;
+    var totalscore = chosenAnswers.length;
+    for(var i=0;i<chosenAnswers.length;i++){
+      
+      if(chosenAnswers[i]==qustions[i].answers[0])
+      {
+          score++;
+      }
+    }
+    score.toString();
+    totalscore.toString();
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
-            'answer',
-            style: TextStyle(
+          Text(
+            'you have answered $score out of $totalscore',
+            style:const TextStyle(
               color: Color.fromARGB(255, 210, 102, 237),
             ),
           ),
