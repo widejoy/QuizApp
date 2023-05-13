@@ -20,7 +20,6 @@ class _QuizState extends State<Quiz> {
     if(selectedAnswers.length == qustions.length)
     {
       setState(() {
-        selectedAnswers = [];
         screen = Results(selectedAnswers);
       });
     }

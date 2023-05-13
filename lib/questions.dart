@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/answer_button.dart';
 import 'package:quiz_app/models/data.dart';
+import 'questions_summary.dart';
 
 class QustionScreen extends StatefulWidget {
   const QustionScreen(this.addAnswers, {super.key});
