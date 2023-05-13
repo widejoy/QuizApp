@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
             height: 60,
           ),
           const Text(
-            'Learn flutter the fun way',
+            'Some big brain questions',
             style: TextStyle(color: Colors.white),
           ),
           const SizedBox(

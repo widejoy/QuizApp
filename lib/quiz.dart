@@ -12,7 +12,7 @@ class Quiz extends StatefulWidget {
     return _QuizState();
   }
 }
-
+Widget? screen;
 class _QuizState extends State<Quiz> {
   List<String> selectedAnswers = [];
   void addAnswers(String answer) {
@@ -20,11 +20,16 @@ class _QuizState extends State<Quiz> {
     if(selectedAnswers.length == qustions.length)
     {
       setState(() {
-        screen = Results(selectedAnswers);
+        screen = Results(selectedAnswers,Onrestart:restart 
+          
+        ,);
       });
     }
   }
-  Widget? screen;
+ 
+  
+  
+  
   
   
 
@@ -43,6 +48,15 @@ class _QuizState extends State<Quiz> {
       screen = QustionScreen(addAnswers);
     });
   }
+  
+  void restart(){
+
+    setState(() {
+      selectedAnswers =[];
+      screen = HomePage(switchScreen);
+    });
+  }
+  
 
   @override
   Widget build(BuildContext context) {

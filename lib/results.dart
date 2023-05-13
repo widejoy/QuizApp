@@ -3,11 +3,10 @@ import 'package:quiz_app/models/data.dart';
 import 'package:quiz_app/questions_summary.dart';
 
 class Results extends StatelessWidget {
-  Results(this.chosenAnswers, {super.key});
+  Results(this.chosenAnswers, {super.key, required this.Onrestart});
   List<String> chosenAnswers = [];
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
-   
 
     for (var i = 0; i < chosenAnswers.length; i++) {
       summary.add(
@@ -19,19 +18,20 @@ class Results extends StatelessWidget {
         },
       );
     }
-    
+
     return summary;
   }
   
+
+  final void Function() Onrestart;
+
   @override
   Widget build(BuildContext context) {
     var score = 0;
     var totalscore = chosenAnswers.length;
-    for(var i=0;i<chosenAnswers.length;i++){
-      
-      if(chosenAnswers[i]==qustions[i].answers[0])
-      {
-          score++;
+    for (var i = 0; i < chosenAnswers.length; i++) {
+      if (chosenAnswers[i] == qustions[i].answers[0]) {
+        score++;
       }
     }
     score.toString();
@@ -41,8 +41,9 @@ class Results extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'you have answered $score out of $totalscore',
-            style:const TextStyle(
+            'You have answered $score out of $totalscore!',
+            style: const TextStyle(
+              fontSize: 30,
               color: Color.fromARGB(255, 210, 102, 237),
             ),
           ),
@@ -50,7 +51,12 @@ class Results extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          TextButton(onPressed: () {}, child: const Text('restart quiz'))
+          TextButton.icon(
+            onPressed: Onrestart,
+            label: const Text('restart quiz'),
+            icon: const Icon(Icons.autorenew_rounded,
+                color: Color.fromARGB(255, 48, 13, 103)),
+          )
         ],
       ),
     );
