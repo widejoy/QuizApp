@@ -11,7 +11,6 @@ class HomePage extends StatelessWidget {
           Image.asset(
             'assets/quiz-logo.png',
             width: 250,
-            color: Colors.white38,
           ),
           const SizedBox(
             height: 60,
