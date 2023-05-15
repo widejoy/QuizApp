@@ -47,6 +47,7 @@ class Results extends StatelessWidget {
               color: Color.fromARGB(255, 210, 102, 237),
             ),
           ),
+          const SizedBox(height: 30,),
           QustionSummary(getSummaryData()),
           const SizedBox(
             height: 20,
