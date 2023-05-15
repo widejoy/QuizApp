@@ -72,7 +72,6 @@ static Future<List<BluePrint>> fetchData() async {
         BluePrint(question3!,answers3),
         BluePrint(question4!,answers4),
         BluePrint(question5!,answers5),
-        const BluePrint('', ['1','2','3'])
       ];
       return qustions;
           
