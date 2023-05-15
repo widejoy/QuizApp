@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/models/api.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage(this.switchScreen,{super.key});
@@ -23,7 +24,7 @@ class HomePage extends StatelessWidget {
             height: 30,
           ),
           OutlinedButton.icon(
-            onPressed: switchScreen,
+            onPressed:  ()async{await Api.fetchData();},//switchScreen,
             label: const Text('start Quiz'),
             icon: const Icon(Icons.arrow_forward),
           )
@@ -31,4 +32,4 @@ class HomePage extends StatelessWidget {
       );
     
   }
-}
+} 
