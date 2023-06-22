@@ -45,9 +45,7 @@ class _QuestionScreen extends State<QustionScreen> {
             ),
             ...currentQuestion.ShuffledAnswers().map(
               (answer) {
-                return ButtomStyle(answer, (() => {
-                  onTap(answer)
-                }));
+                return ButtomStyle(answer, (() => {onTap(answer)}));
               },
             )
           ],
