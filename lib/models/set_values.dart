@@ -21,23 +21,22 @@ class SetValues {
 
     List<BluePrint> qustions = [];
     String question;
-    List<String> options = [];
+    List<dynamic> options = [];
+    List<String> optionsstring = [];
 
     final data = decoded["results"];
 
     for (var element in data) {
       question = element["question"];
       options = element["incorrect_answers"];
-      for (var i in options) {
-        i = i.toString();
-      }
       options.insert(
         0,
-        element["correct_answer"].toString(),
+        element["correct_answer"],
       );
+      optionsstring = options.map((e) => e.toString()).toList();
 
       qustions.add(
-        BluePrint(question, options),
+        BluePrint(question, optionsstring),
       );
     }
     return qustions;

@@ -1,34 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/models/data.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage(this.switchScreen,{super.key});
+  const HomePage(this.switchScreen, {super.key});
   final void Function() switchScreen;
   @override
   Widget build(BuildContext context) {
-    return 
-       Center(
-        child: Column(mainAxisSize: MainAxisSize.min, children: [
-          Image.asset(
-            'assets/quiz-logo.png',
-            width: 250,
-          ),
-          const SizedBox(
-            height: 60,
-          ),
-          const Text(
-            'Some big brain questions',
-            style: TextStyle(color: Colors.white),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          OutlinedButton.icon(
-            onPressed:  switchScreen,
-            label: const Text('start Quiz'),
-            icon: const Icon(Icons.arrow_forward),
-          )
-        ]),
-      );
-    
+    return Center(
+      child: Column(mainAxisSize: MainAxisSize.min, children: [
+        Image.asset(
+          'assets/quiz-logo.png',
+          width: 250,
+        ),
+        const SizedBox(
+          height: 60,
+        ),
+        const Text(
+          'Some big brain questions',
+          style: TextStyle(color: Colors.white),
+        ),
+        const SizedBox(
+          height: 30,
+        ),
+        OutlinedButton.icon(
+          onPressed: switchScreen,
+          label: const Text('start Quiz'),
+          icon: const Icon(Icons.arrow_forward),
+        )
+      ]),
+    );
   }
-} 
+}
