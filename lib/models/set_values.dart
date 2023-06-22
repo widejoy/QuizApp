@@ -6,77 +6,40 @@ import 'package:quiz_app/models/models_question.dart';
 
 class SetValues {
   static Future<List<BluePrint>> fetchData() async {
-    final response = await http.get(Uri.parse(
-        'https://opentdb.com/api.php?amount=5&category=15&type=multiple'));
+    final response = await http.get(
+      Uri.https(
+        'opentdb.com',
+        '/api.php',
+        {'amount': '5', 'category': '15', 'type': 'multiple'},
+      ),
+    );
+
+    final listdataencoded = Html(
+      data: response.body,
+    ).data;
+    final decoded = convert.jsonDecode(listdataencoded!);
+
     List<BluePrint> qustions = [];
-    final decoded = convert.jsonDecode(response.body);
+    String question;
+    List<String> options = [];
 
-    var results = decoded['results'][0]['question'];
-    var question1 = Html(data: results).data;
-    List<String> answers1 = List<String>.from(
-        decoded['results'][0]['incorrect_answers'] as List<dynamic>);
-    answers1 = Html(data: results).data as List<String>;
+    final data = decoded["results"];
 
-    var firstIndex = decoded['results'][0]['correct_answer'];
-    firstIndex = Html(data: results).data!;
+    for (var element in data) {
+      question = element["question"];
+      options = element["incorrect_answers"];
+      for (var i in options) {
+        i = i.toString();
+      }
+      options.insert(
+        0,
+        element["correct_answer"].toString(),
+      );
 
-    answers1.insert(0, firstIndex);
-
-    results = decoded['results'][1]['question'];
-    var question2 = Html(data: results).data;
-    List<String> answers2 = List<String>.from(
-        decoded['results'][1]['incorrect_answers'] as List<dynamic>);
-
-    answers2 = Html(data: results).data as List<String>;
-
-    firstIndex = decoded['results'][1]['correct_answer'];
-    firstIndex = Html(data: results).data!;
-
-    answers2.insert(0, firstIndex);
-
-    results = decoded['results'][2]['question'];
-    var question3 = Html(data: results).data;
-    List<String> answers3 = List<String>.from(
-        decoded['results'][2]['incorrect_answers'] as List<dynamic>);
-
-    answers3 = Html(data: results).data as List<String>;
-
-    firstIndex = decoded['results'][2]['correct_answer'];
-    firstIndex = Html(data: results).data!;
-
-    answers3.insert(0, firstIndex);
-
-    results = decoded['results'][3]['question'];
-    var question4 = Html(data: results).data;
-    List<String> answers4 = List<String>.from(
-        decoded['results'][3]['incorrect_answers'] as List<dynamic>);
-
-    answers4 = Html(data: results).data as List<String>;
-
-    firstIndex = decoded['results'][3]['correct_answer'];
-    firstIndex = Html(data: results).data!;
-
-    answers4.insert(0, firstIndex);
-
-    results = decoded['results'][4]['question'];
-    var question5 = Html(data: results).data;
-    List<String> answers5 = List<String>.from(
-        decoded['results'][4]['incorrect_answers'] as List<dynamic>);
-
-    answers5 = Html(data: results).data as List<String>;
-
-    firstIndex = decoded['results'][4]['correct_answer'];
-    firstIndex = Html(data: results).data!;
-
-    answers5.insert(0, firstIndex);
-
-    qustions = [
-      BluePrint(question1!, answers1),
-      BluePrint(question2!, answers2),
-      BluePrint(question3!, answers3),
-      BluePrint(question4!, answers4),
-      BluePrint(question5!, answers5),
-    ];
+      qustions.add(
+        BluePrint(question, options),
+      );
+    }
     return qustions;
   }
 }
