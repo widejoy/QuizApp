@@ -37,7 +37,7 @@ class _QuestionScreen extends State<QustionScreen> {
             Text(
               currentQuestion.text,
               style: const TextStyle(
-                  color: Color.fromARGB(255, 210, 102, 237), fontSize: 28),
+                  color: Color.fromARGB(255, 210, 102, 237), fontSize: 22),
             ),
             const SizedBox(
               height: 30,

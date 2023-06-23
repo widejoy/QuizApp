@@ -15,14 +15,14 @@ class QustionSummary extends StatelessWidget {
               return Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 400),
+                    padding: const EdgeInsets.only(left: 30),
                     child: Container(
                       width: 30,
                       height: 30,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 150, 198, 241),
-                        borderRadius: BorderRadius.circular(100),
+                        borderRadius: BorderRadius.circular(20),
                       ),
                       child: Text(
                         data['index'].toString(),
@@ -34,39 +34,44 @@ class QustionSummary extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    width: 40,
+                    width: 16,
                   ),
-                  Column(
-                    children: [
-                      Text(
-                        style: const TextStyle(
-                            color: Color.fromARGB(255, 44, 138, 196),
-                            fontStyle: FontStyle.italic,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                        data['question'] as String,
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Center(
-                        child: Text(
-                            style: const TextStyle(
-                              color: Color.fromARGB(255, 128, 14, 215),
-                            ),
-                            data['user_answer'] as String),
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Center(
-                        child: Text(
-                            style: const TextStyle(
-                              color: Color.fromARGB(255, 225, 18, 197),
-                            ),
-                            data['correct_answer'] as String),
-                      ),
-                    ],
+                  Expanded(
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Text(
+                          style: const TextStyle(
+                              color: Color.fromARGB(255, 44, 138, 196),
+                              fontStyle: FontStyle.italic,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                          data['question'] as String,
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Center(
+                          child: Text(
+                              style: const TextStyle(
+                                color: Color.fromARGB(255, 128, 14, 215),
+                              ),
+                              data['user_answer'] as String),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Center(
+                          child: Text(
+                              style: const TextStyle(
+                                color: Color.fromARGB(255, 225, 18, 197),
+                              ),
+                              data['correct_answer'] as String),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               );
