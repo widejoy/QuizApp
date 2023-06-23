@@ -26,7 +26,7 @@ class _QuestionScreen extends State<QustionScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var currentQuestion = qustions[currentQuestionIndex];
+    var currentQuestion = questions[currentQuestionIndex];
 
     return Container(
       margin: const EdgeInsets.all(20),

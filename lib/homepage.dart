@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/models/data.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage(this.switchScreen, {super.key});

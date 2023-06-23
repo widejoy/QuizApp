@@ -12,8 +12,8 @@ class Results extends StatelessWidget {
       summary.add(
         {
           'index': i,
-          'question': qustions[i].text,
-          'correct_answer': qustions[i].answers[0],
+          'question': questions[i].text,
+          'correct_answer': questions[i].answers[0],
           'user_answer': chosenAnswers[i]
         },
       );
@@ -21,7 +21,6 @@ class Results extends StatelessWidget {
 
     return summary;
   }
-  
 
   final void Function() Onrestart;
 
@@ -30,7 +29,7 @@ class Results extends StatelessWidget {
     var score = 0;
     var totalscore = chosenAnswers.length;
     for (var i = 0; i < chosenAnswers.length; i++) {
-      if (chosenAnswers[i] == qustions[i].answers[0]) {
+      if (chosenAnswers[i] == questions[i].answers[0]) {
         score++;
       }
     }
@@ -47,7 +46,9 @@ class Results extends StatelessWidget {
               color: Color.fromARGB(255, 210, 102, 237),
             ),
           ),
-          const SizedBox(height: 30,),
+          const SizedBox(
+            height: 30,
+          ),
           QustionSummary(getSummaryData()),
           const SizedBox(
             height: 20,

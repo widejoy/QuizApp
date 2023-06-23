@@ -12,51 +12,41 @@ class Quiz extends StatefulWidget {
     return _QuizState();
   }
 }
+
 Widget? screen;
+
 class _QuizState extends State<Quiz> {
   List<String> selectedAnswers = [];
   void addAnswers(String answer) {
     selectedAnswers.add(answer);
-    if(selectedAnswers.length == qustions.length)
-    {
+    if (selectedAnswers.length == questions.length) {
       setState(() {
-        screen = Results(selectedAnswers,Onrestart:restart 
-          
-        ,);
+        screen = Results(
+          selectedAnswers,
+          Onrestart: restart,
+        );
       });
     }
   }
- 
-  
-  
-  
-  
-  
 
   @override
-  
   void initState() {
-    
     screen = HomePage(switchScreen);
     super.initState();
-    
   }
 
   void switchScreen() {
-    
     setState(() {
       screen = QustionScreen(addAnswers);
     });
   }
-  
-  void restart(){
 
+  void restart() {
     setState(() {
-      selectedAnswers =[];
+      selectedAnswers = [];
       screen = HomePage(switchScreen);
     });
   }
-  
 
   @override
   Widget build(BuildContext context) {
@@ -71,5 +61,4 @@ class _QuizState extends State<Quiz> {
       ),
     );
   }
-
 }

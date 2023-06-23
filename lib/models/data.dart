@@ -1,14 +1,16 @@
 import 'package:quiz_app/models/set_values.dart';
 import 'models_question.dart';
 
-class Getvalues {
-  List<BluePrint> enteredvalue() {
-    List<BluePrint> questions = [];
-    SetValues.fetchData().then((value) => questions = value);
+List<BluePrint> questions = [];
 
+class Getvalues {
+  Future<List<BluePrint>> fetchQuestions() async {
+    questions = await SetValues.fetchData();
     return questions;
   }
 }
 
-Getvalues dataobj = Getvalues();
-List<BluePrint> qustions = dataobj.enteredvalue();
+void fetchDataAndProcess() async {
+  Getvalues dataobj = Getvalues();
+  questions = await dataobj.fetchQuestions();
+}
