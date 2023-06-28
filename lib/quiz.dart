@@ -5,7 +5,8 @@ import 'package:quiz_app/questions.dart';
 import 'results.dart';
 
 class Quiz extends StatefulWidget {
-  const Quiz({super.key});
+  final bool isloading;
+  const Quiz({super.key, required this.isloading});
 
   @override
   State<Quiz> createState() {
@@ -46,6 +47,7 @@ class _QuizState extends State<Quiz> {
       selectedAnswers = [];
       screen = HomePage(switchScreen);
     });
+    fetchDataAndProcess();
   }
 
   @override

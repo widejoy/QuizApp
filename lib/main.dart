@@ -5,5 +5,7 @@ import 'package:quiz_app/quiz.dart';
 void main() {
   fetchDataAndProcess();
 
-  runApp(const Quiz());
+  runApp(const Quiz(
+    isloading: true,
+  ));
 }
